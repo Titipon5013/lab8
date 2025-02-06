@@ -43,6 +43,12 @@
 
   ![image](https://github.com/user-attachments/assets/56c977d7-4d6d-4a52-b763-470e59c56973)
 
+- command
+  
+  docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+  
+  docker run -d -p 8080:80 -e NAME="T H A N A T H I P" dto80/environment-docker-example
+
 - 5.1 - 5.4
 
   ![image](https://github.com/user-attachments/assets/f51a93b3-79a3-40ad-b44d-b4ae95144845)
@@ -80,6 +86,7 @@
   -e MONGODB_ROOT_USER=root \
   -e MONGODB_ROOT_PASSWORD=password123 \
   -p 27017:27017 bitnami/mongodb:latest
+  
   docker run -d --name mongo-express --link mongodb:mongo \
   -p 8081:8081 \
   -e ME_CONFIG_MONGODB_ADMINUSERNAME=root \
