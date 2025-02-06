@@ -74,6 +74,27 @@
   ![image](https://github.com/user-attachments/assets/ec9e754c-9826-4732-aa21-900d5ae36664)
 
 
+- command
+
+  docker run -d --name mongodb \
+  -e MONGODB_ROOT_USER=root \
+  -e MONGODB_ROOT_PASSWORD=password123 \
+  -p 27017:27017 bitnami/mongodb:latest
+  docker run -d --name mongo-express --link mongodb:mongo \
+  -p 8081:8081 \
+  -e ME_CONFIG_MONGODB_ADMINUSERNAME=root \
+  -e ME_CONFIG_MONGODB_ADMINPASSWORD=password123 \
+  -e ME_CONFIG_MONGODB_ENABLE_ADMIN=true \
+  mongo-express:latest
+
+  docker rm -f mongo-express
+
+  docker run -d --name mongo-express --link mongodb:mongo -p 8081:8081 \
+  -e ME_CONFIG_MONGODB_ADMINUSERNAME=root \
+  -e ME_CONFIG_MONGODB_ADMINPASSWORD=password123 \
+  -e ME_CONFIG_MONGODB_ENABLE_ADMIN=true \
+  -e ME_CONFIG_MONGODB_SERVER=mongo \
+  mongo-express:latest
 
 
 
